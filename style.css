@@ -1,0 +1,320 @@
+body {
+    background: #E7E7E7;
+}
+
+header {
+    display: block !important;
+}
+
+header > nav {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 16px;
+}
+
+dialog {
+    top: 16px;
+}
+
+select {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: transparent;
+    width: 100%;
+    padding: 4px 2px;
+    margin: 0;
+    color: #444;
+    border: none;
+    border-bottom: 1px solid #DDD;
+}
+
+select:focus {
+    outline: none;
+}
+
+::selection {
+    background: transparent;
+}
+
+::backdrop, .backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+#squire-menu {
+    position: relative;
+}
+
+#squire-menu > a {
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    border: 2px solid #EEE;
+    margin-right: 8px;
+    transition: opacity 400ms, filter 400ms, -webkit-filter 400ms;
+}
+
+#squire-menu > a.disabled {
+    -webkit-filter: grayscale(0.8);
+    filter: grayscale(0.8);
+    opacity: 0.8;
+}
+
+#squire-menu + button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+#squire-list {
+    box-sizing: border-box;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px;
+    text-align: center;
+}
+
+.squire-wrap {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 8px;
+    width: 33.3%
+}
+
+.squire-wrap.disabled {
+    display: none;
+}
+
+.squire-card {
+    width: auto;
+}
+
+.squire-card.no-words .squire-status,
+.squire-card.no-specs .squire-btn-specs,
+.squire-card.no-words .squire-btn-search,
+.squire-card.no-words .squire-actions > a {
+    visibility: hidden;
+}
+
+.squire-header {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.squire-header > canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.squire-header > img {
+    visibility: hidden;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.squire-header > h2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 16px;
+    color: #FFF;
+    background: rgba(0, 0, 0, .4);
+}
+
+.squire-header > a {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 2;
+    color: #FFF;
+}
+
+.squire-header > a:not(.completed) {
+    background: rgba(255, 255, 255, .4) !important;
+    color: #000;
+}
+
+.squire-specs {
+    position: absolute;
+    bottom: 126px;
+    left: 12px;
+    right: 12px;
+    z-index: 2;
+    padding: 0;
+    opacity: 0;
+    transform: translate(0px, 300px);
+    transition: transform 400ms, opacity 400ms;
+    will-change: transform, opacity;
+}
+
+.squire-specs.visible {
+    opacity: 1;
+    transform: translate(0px, 0px);
+}
+
+.squire-specs-lvl {
+    display: flex;
+}
+
+.squire-specs-lvl > a {
+    flex: 1 1 auto;
+    display: block;
+    padding: 0;
+    line-height: 2.2;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    border-top: 3px solid #56F;
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+}
+
+.squire-specs-lvl > a:not(.active) {
+    border-color: transparent !important;
+}
+
+.squire-specs-txt > ul {
+    display: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.squire-specs-txt > ul.active {
+    display: block;
+}
+
+.squire-specs-txt > ul > li {
+    display: flex;
+    border-bottom: 1px solid #EEE;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.squire-specs-txt > ul > li > div {
+    flex: 1 1 0px;
+    text-align: center;
+    border-left: 1px solid #E7E7E7;
+}
+
+.squire-specs-txt > ul > li > div:first-child {
+    flex: 0 0 40px;
+    text-align: right;
+    padding-right: 8px;
+}
+
+.squire-specs-txt > ul > li:first-child {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.squire-specs-txt > ul > li:first-child span {
+    font-weight: bold;
+}
+
+.squire-actions {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 5;
+    color: #000;
+    background: rgba(0, 0, 0, .7);
+    background: #FFF !important;
+}
+
+.squire-actions small {
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    display: block;
+    font-size: 80%;
+    line-height: 1;
+    font-weight: 400;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.squire-actions small:before {
+    content: "Hint : ";
+}
+
+.squire-actions small + span {
+    position: relative;
+    top: -6px;
+}
+
+#search > h4 {
+    position: relative;
+    padding: 8px 8px 16px 56px;
+    margin: 0;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    border-bottom: 1px solid #DDD;
+}
+
+#search > h4 > canvas {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 52px;
+    height: 52px;
+    border: 2px solid #FFF;
+}
+
+#search > h4 + div {
+    padding: 0 0 16px 0;
+}
+
+#search h5 {
+    margin-top: 0;
+}
+
+#search p {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+#search p a {
+    margin-top: 10px;
+    color: #FFF;
+}
+
+#helper {
+    box-sizing: border-box;
+    padding: 16px;
+    margin-bottom: 16px;
+    width: 832px;
+    max-width: 100%;
+}
+
+#helper img {
+    display: block;
+    width: 100%;
+}
+
+@media all and (max-width: 880px) {
+    .squire-wrap {
+        width: 50%;
+    }
+}
+
+@media all and (max-width: 480px) {
+    header {
+        display: none !important;
+    }
+
+    .squire-wrap {
+        width: 100%;
+    }
+}
